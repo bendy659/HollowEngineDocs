@@ -1,0 +1,84 @@
+body {
+  background: rgb(23,23,23);
+  background: linear-gradient(0deg, rgb(23,23,23) 0%, rgb(87,87,87) 100%) no-repeat;
+
+  height: 2000px;
+}
+
+.header {
+  position: fixed;
+
+  background: rgb(0,39,143);
+  background: linear-gradient(0deg, rgb(0,39,143) 0%, rgb(0,112,255) 50%, rgb(75,160,255) 100%);
+
+  width: 100%;
+  height: 64px;
+}
+.header .container {
+
+}
+.header logo form button {
+  position: relative;
+
+  left: 16px;
+  top: 8px;
+
+  background-color: transparent;
+
+  border-color: transparent;
+}
+.logo {
+  display: flex;
+
+  position: relative;
+
+  background: rgb(187,187,187);
+  background: linear-gradient(90deg, rgba(187,187,187,1) 0%, rgba(251,251,251,1) 100%);
+  -webkit-background: linear-gradient(90deg, rgba(187,187,187,1) 0%, rgba(251,251,251,1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  margin-right: 16px;
+
+  scale: 100%;
+
+  transition:
+    background-color 0.2s ease-in-out,
+    scale 0.1s ease-in-out;
+}
+.logo:hover {
+  background: rgb(255, 187, 0);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.logo:active {
+  background: rgb(255, 255, 0);
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  scale: 90%;
+}
+
+.page-list {
+
+}
+
+::-webkit-scrollbar {
+  background: rgb(79,79,79);
+  background: linear-gradient(0deg, rgba(79,79,79,1) 0%, rgba(205,205,205,1) 100%);
+
+  --border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(132,191,255);
+  background: linear-gradient(180deg, rgba(132,191,255,1) 0%, rgba(82,129,255,1) 100%);
+
+  --border-radius: 1rem;
+
+  margin-left: -100px;
+}
