@@ -1,66 +1,122 @@
 body {
   background: rgb(23,23,23);
   background: linear-gradient(0deg, rgb(23,23,23) 0%, rgb(87,87,87) 100%) no-repeat;
-
   height: 2000px;
 }
 
 .header {
+  display: block;
   position: fixed;
-
   background: rgb(0,39,143);
   background: linear-gradient(0deg, rgb(0,39,143) 0%, rgb(0,112,255) 50%, rgb(75,160,255) 100%);
-
   width: 100%;
+  height: 48px;
+  transition: height 1s ease-in-out;
+}
+.header::after {
   height: 64px;
 }
-.header .container {
 
+.container {
+  display: flex;
+  align-items: center;
 }
-.header logo form button {
+
+pageslist {
+  display: flex;
   position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #5a85e0 center center;
+  width: 32px;
+  height: 32px;
+  border-radius: 0.25rem;
+  left: 8px;
+  top: 4px;
+  margin-right: 10px;
+  transform-origin: right center;
+  transition:
+    transform 0.2s ease-in-out,
+    background-color 0.3s ease-in-out,
+    scale 0.1s ease-in-out;
+}
+.line {
+  background: #a0b9da;
+  margin: 2px;
+   width: 75%;
+   height: 3px;
 
-  left: 16px;
-  top: 8px;
+   transition:
+    transform 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
+    width 0.3s ease-in-out,
+    height 0.3s ease-in-out;
+}
+pageslist:hover {
+  background-color: #3b5691;
+}
+pageslist:hover .line:nth-child(1) {
+  transform:
+  rotate(30deg)
+  translateY(2px);
+  background-color: #ffffff;
+}
+pageslist:hover .line:nth-child(2) {
+  transform:
+    rotate(90deg)
+    translateY(10px);
+  background-color: #ffffff;
+}
+pageslist:hover .line:nth-child(3) {
+  transform:
+  rotate(-30deg)
+  translateY(-2px);
+  background-color: #ffffff;
+}
+pageslist:active {
+  scale: 90%
+}
 
+logo button {
+  position: relative;
   background-color: transparent;
-
   border-color: transparent;
 }
 .logo {
   display: flex;
-
   position: relative;
-
   background: rgb(187,187,187);
   background: linear-gradient(90deg, rgba(187,187,187,1) 0%, rgba(251,251,251,1) 100%);
   -webkit-background: linear-gradient(90deg, rgba(187,187,187,1) 0%, rgba(251,251,251,1) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
-
   margin-right: 16px;
-
   scale: 100%;
-
   transition:
     background-color 0.2s ease-in-out,
     scale 0.1s ease-in-out;
+  top: 5px;
 }
 .logo:hover {
   background: rgb(255, 187, 0);
   background-clip: text;
   -webkit-background-clip: text;
+  animation: logo-hovered 1s infinite ease-in-out;
+  cursor: pointer;
 }
 .logo:active {
   background: rgb(255, 255, 0);
   background-clip: text;
   -webkit-background-clip: text;
-
   scale: 90%;
+  cursor: wait;
+}
+pageslist:active .logo {
+  transform: translateX(64px);
 }
 
 .page-list {
@@ -70,15 +126,27 @@ body {
 ::-webkit-scrollbar {
   background: rgb(79,79,79);
   background: linear-gradient(0deg, rgba(79,79,79,1) 0%, rgba(205,205,205,1) 100%);
-
   --border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background: rgb(132,191,255);
   background: linear-gradient(180deg, rgba(132,191,255,1) 0%, rgba(82,129,255,1) 100%);
-
   --border-radius: 1rem;
-
   margin-left: -100px;
+}
+
+/* Animations */
+
+@keyframes logo-hovered {
+  from, to { transform: rotate(-2deg) }
+  50% { transform: rotate(2deg) }
+}
+
+@keyframes pageslist-demo {
+  to {
+    transform:
+      rotate(540deg)
+      translateX(64px)
+    }
 }
